@@ -25,7 +25,7 @@ export const useEditorInput = (
       return;
     }
     //checks the value of enableInput and returns if its false
-    if(!enableInput){
+    if (!enableInput) {
       return;
     }
     event.preventDefault();
@@ -137,7 +137,7 @@ export const useBufferedContent = (
           setCaretPosition(0);
           setBeforeCaretText("");
           setAfterCaretText("");
-          return 
+          return
         }
 
         const waiting = (
@@ -153,7 +153,7 @@ export const useBufferedContent = (
         setCaretPosition(0);
         setBeforeCaretText("");
         setAfterCaretText("");
-        
+
         if (text) {
           const commandArguments = rest.join(" ");
 
@@ -201,6 +201,7 @@ export const useBufferedContent = (
 
 export const useCurrentLine = (
   caret: boolean,
+  blink: boolean,
   consoleFocused: boolean,
   prompt: string,
   commands: any,
@@ -263,7 +264,7 @@ export const useCurrentLine = (
       <div className={style.lineText}>
         <span className={style.preWhiteSpace}>{beforeCaretText}</span>
         {consoleFocused && caret ? (  //if caret isn't true, caret won't be displayed
-          <span className={style.caret}> 
+          <span className={style.caret}>
             <span className={style.caretAfter} style={{ background: themeStyles.themeColor }} />
           </span>
         ) : null}
@@ -274,8 +275,8 @@ export const useCurrentLine = (
     <>
       {mobileInput}
       <div className={style.lineText}>
-        {consoleFocused && caret? ( //if caret isn't true, caret won't be displayed
-          <span className={style.caret}>
+        {consoleFocused && caret ? ( //if caret isn't true, caret won't be displayed
+          <span className={(blink ? "blink " : "") + style.caret}>
             <span className={style.caretAfter} style={{ background: themeStyles.themeColor }} />
           </span>
         ) : null}

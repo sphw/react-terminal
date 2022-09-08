@@ -19,6 +19,7 @@ export default function Editor(props: any) {
   const {
     enableInput,
     caret,
+    blink,
     consoleFocused,
     prompt,
     commands,
@@ -30,10 +31,11 @@ export default function Editor(props: any) {
 
   const currentLine = useCurrentLine(
     caret,
+    blink,
     consoleFocused,
     prompt,
     commands,
-    errorMessage, 
+    errorMessage,
     enableInput,
     defaultHandler
   );

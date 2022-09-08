@@ -20,6 +20,7 @@ export default function Terminal(props: any) {
   // Get all props destructively
   const {
     caret,
+    blink,
     theme,
     showControlBar,
     showControlButtons,
@@ -39,6 +40,7 @@ export default function Terminal(props: any) {
 
   const editor = <Editor
     caret={caret}
+    blink={blink}
     consoleFocused={consoleFocused}
     prompt={prompt}
     commands={commands}
@@ -64,8 +66,9 @@ export default function Terminal(props: any) {
 }
 
 Terminal.propTypes = {
-  enableInput:PropTypes.bool,
+  enableInput: PropTypes.bool,
   caret: PropTypes.bool,
+  blink: PropTypes.bool,
   theme: PropTypes.string,
   showControlBar: PropTypes.bool,
   showControlButtons: PropTypes.bool,
